@@ -12,7 +12,7 @@ namespace FuncionariosApi.Business.Entities
         [StringLength(50)]
         public string Nome { get; set; }
         
-        public DateType DataEntrega { get; set; }
+        public string DataEntrega { get; set; }
         [StringLength(150)]
         public string DescricaoTarefa { get; set; }
         [StringLength(15)]
