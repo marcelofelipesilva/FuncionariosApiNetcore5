@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FuncionariosApi.Business.IRepositories;
+using FuncionariosApi.Infra.Data;
+using FuncionariosApi.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +30,11 @@ namespace FuncionariosApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+            services.AddDbContext<FuncionariosApiDbContext>();
+            services.AddScoped<IFuncionarioRepository,FuncionarioRepository>();
+            services.AddScoped<ITarefaRepsository, TarefaRepository>();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "FuncionariosApi", Version = "v1"});
