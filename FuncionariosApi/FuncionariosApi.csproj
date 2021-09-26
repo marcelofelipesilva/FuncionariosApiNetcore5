@@ -20,9 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Configurations" />
       <Folder Include="Controllers" />
-      <Folder Include="Models" />
     </ItemGroup>
 
 </Project>
