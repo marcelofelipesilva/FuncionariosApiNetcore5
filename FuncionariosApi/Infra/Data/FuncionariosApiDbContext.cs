@@ -20,7 +20,7 @@ namespace FuncionariosApi.Infra.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { 
-            optionsBuilder.UseSqlServer(@"Server=172.17.0.6;Database=FuncionarioApiBD;User Id=sa;Password=App@12345;");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=funcionariosbd;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         public DbSet<Funcionario> Funcionarios { get; set; }
