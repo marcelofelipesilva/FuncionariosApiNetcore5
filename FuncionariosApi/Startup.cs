@@ -33,6 +33,7 @@ namespace FuncionariosApi
             
             services.AddDbContext<FuncionariosApiDbContext>();
             services.AddScoped<IFuncionarioRepository,FuncionarioRepository>();
+
             services.AddScoped<ITarefaRepsository, TarefaRepository>();
             
             services.AddSwaggerGen(c =>
