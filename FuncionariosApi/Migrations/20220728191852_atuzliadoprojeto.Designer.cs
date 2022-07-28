@@ -6,26 +6,30 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace FuncionariosApi.Migrations
 {
     [DbContext(typeof(FuncionariosApiDbContext))]
-    [Migration("20210926135814_incialProjeto")]
-    partial class incialProjeto
+    [Migration("20220728191852_atuzliadoprojeto")]
+    partial class atuzliadoprojeto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.10")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("FuncionariosApi.Business.Entities.Funcionario", b =>
                 {
                     b.Property<int>("FuncionarioID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FuncionarioID"), 1L, 1);
 
                     b.Property<string>("Cargo")
                         .HasMaxLength(40)
@@ -39,9 +43,9 @@ namespace FuncionariosApi.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Matricula")
+                    b.Property<string>("Matricula")
                         .HasMaxLength(25)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Nome")
                         .HasMaxLength(50)
@@ -53,15 +57,16 @@ namespace FuncionariosApi.Migrations
 
                     b.HasKey("FuncionarioID");
 
-                    b.ToTable("TB_Funcionario");
+                    b.ToTable("TB_Funcionario", (string)null);
                 });
 
             modelBuilder.Entity("FuncionariosApi.Business.Entities.Tarefa", b =>
                 {
                     b.Property<int>("TarefaID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TarefaID"), 1L, 1);
 
                     b.Property<string>("DataEntrega")
                         .HasColumnType("nvarchar(max)");
@@ -80,7 +85,7 @@ namespace FuncionariosApi.Migrations
 
                     b.HasKey("TarefaID");
 
-                    b.ToTable("TB_Tarefa");
+                    b.ToTable("TB_Tarefa", (string)null);
                 });
 #pragma warning restore 612, 618
         }
