@@ -11,7 +11,7 @@ namespace FuncionariosApi.Business.Entities
         [StringLength(50)]
         public string Nome { get; set; }
         [StringLength(25)]
-        public int Matricula { get; set; }
+        public string Matricula { get; set; }
         [StringLength(8)]
         public string Senha { get; set; }
         [StringLength(20)]
